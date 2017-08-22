@@ -12,5 +12,20 @@
 </head>
 <body>
 <h1>hello world!</h1>
+<form method="post" name="main" action="" onsubmit="redirect(this);">
+    <input type="submit" name="submit"/>
+    <jsp:forward page = "test.jsp" />
+</form>
+
+<form id="main" method="post" name="main" action="" onsubmit="redirect(this);">
+    <input type="submit" name="submit"/>
+</form>
+
+
+function redirect(elem){
+elem.setAttribute("action","somepage.jsp");
+elem.submit();
+}
+
 </body>
 </html>
