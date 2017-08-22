@@ -24,4 +24,6 @@ http://localhost:8080/index.jsp
 http://localhost:8080/ is homepage
 
 <h6>Some info graphic</h5>
-<p style="text-align: left; background-color: green">green box</p>
+<div style="text-align: left; background-color: green">
+    <p>green box</p>
+</div>
