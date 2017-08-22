@@ -1,4 +1,5 @@
 # spring4
+<h5>How to start this project on local</h5>
 To start your own server, download this repo
 than download TomCat from official web-site
 retrieve in some folder
@@ -21,3 +22,6 @@ http://localhost:8080/html.jsp
 http://localhost:8080/index.jsp
 
 http://localhost:8080/ is homepage
+
+<h6>Some info graphic</h5>
+<p style="text-align: left; background-color: green">green box</p>
