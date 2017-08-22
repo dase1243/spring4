@@ -130,13 +130,13 @@
                     <version>2.4</version>
                     <configuration>
                         <warSourceDirectory>src/main/webapp</warSourceDirectory>
-                        <warName>SpringMVCHibernateWithSpringSecurityExample</warName>
+                        <warName>Spring4WebApp</warName>
                         <failOnMissingWebXml>false</failOnMissingWebXml>
                     </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
-        <finalName>SpringMVCHibernateWithSpringSecurityExample</finalName>
+        <finalName>Spring4WebApp</finalName>
     </build>
 
 </project>
