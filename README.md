@@ -1,5 +1,5 @@
 # spring4
-to start your own server, download this repo
+To start your own server, download this repo
 than download TomCat from official web-site
 retrieve in some folder
 than in Idea, open this project
