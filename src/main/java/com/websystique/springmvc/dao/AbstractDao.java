@@ -1,49 +1,41 @@
 package com.websystique.springmvc.dao;
 
 import java.io.Serializable;
-
 import java.lang.reflect.ParameterizedType;
 
-import org.hibernate.Criteria;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 public abstract class AbstractDao<PK extends Serializable, T> {
+	
+	private final Class<T> persistentClass;
+	
+	@SuppressWarnings("unchecked")
+	public AbstractDao(){
+		this.persistentClass =(Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];
+	}
+	
+	@PersistenceContext
+	EntityManager entityManager;
+	
+	protected EntityManager getEntityManager(){
+		return this.entityManager;
+	}
 
-    private final Class<T> persistentClass;
+	protected T getByKey(PK key) {
+		return (T) entityManager.find(persistentClass, key);
+	}
 
-    @SuppressWarnings("unchecked")
-    public AbstractDao() {
-        this.persistentClass = (Class<T>) ((ParameterizedType) this.getClass().getGenericSuperclass()).getActualTypeArguments()[1];
-    }
+	protected void persist(T entity) {
+		entityManager.persist(entity);
+	}
+	
+	protected void update(T entity) {
+		entityManager.merge(entity);
+	}
 
-    @Autowired
-    private SessionFactory sessionFactory;
-
-    protected Session getSession() {
-        return sessionFactory.getCurrentSession();
-    }
-
-    @SuppressWarnings("unchecked")
-    public T getByKey(PK key) {
-        return (T) getSession().get(persistentClass, key);
-    }
-
-    public void persist(T entity) {
-        getSession().persist(entity);
-    }
-
-    public void update(T entity) {
-        getSession().update(entity);
-    }
-
-    public void delete(T entity) {
-        getSession().delete(entity);
-    }
-
-    protected Criteria createEntityCriteria() {
-        return getSession().createCriteria(persistentClass);
-    }
+	protected void delete(T entity) {
+		entityManager.remove(entity);
+	}
 
 }
