@@ -23,7 +23,18 @@ http://localhost:8080/index.jsp
 
 http://localhost:8080/ is homepage
 
-<h6>Some info graphic</h5>
-<div style="text-align: left; background-color: green">
-    <p>green box</p>
-</div>
+<h5>How to create and conect database</h5>
+<p>
+Download MySQL and install:
+1)execute all suggested features
+2)create new user for db
+
+When it installed, create new Schema
+In Intellij Idea enclose Maven Project click on DataBase
+Tap green plus, choose MySQL, do default settings
+
+Edit application.properties with your DB settings
+
+Clean install the project
+Start TomCat
+</p>
