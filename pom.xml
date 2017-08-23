@@ -75,6 +75,11 @@
             <version>5.2.10.Final</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.3-1100-jdbc41</version>
+        </dependency>
         <!-- jsr303 validation -->
         <dependency>
             <groupId>javax.validation</groupId>
@@ -91,7 +96,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.7-dmr</version>
+            <version>5.1.39</version>
         </dependency>
 
         <!-- SLF4J/Logback -->
