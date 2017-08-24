@@ -7,53 +7,44 @@
     <title>Login page</title>
     <link href="<c:url value='/static/css/bootstrap.css' />" rel="stylesheet"></link>
     <link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link>
+    <link href="<c:url value='/static/css/common.css' />" rel="stylesheet"></link>
     <link rel="stylesheet" type="text/css"
           href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css"/>
 </head>
 
 <body>
-<div id="mainWrapper">
-    <div class="login-container">
-        <div class="login-card">
-            <div class="login-form">
-                <c:url var="loginUrl" value="/login"/>
-                <form action="${loginUrl}" method="post" class="form-horizontal">
-                    <c:if test="${param.error != null}">
-                        <div class="alert alert-danger">
-                            <p>Invalid username and password.</p>
-                        </div>
-                    </c:if>
-                    <c:if test="${param.logout != null}">
-                        <div class="alert alert-success">
-                            <p>You have been logged out successfully.</p>
-                        </div>
-                    </c:if>
-                    <div class="input-group input-sm">
-                        <label class="input-group-addon" for="username"><i class="fa fa-user"></i></label>
-                        <input type="text" class="form-control" id="username" name="ssoId" placeholder="Enter Username"
-                               required>
+<div id="container">
+    <div class="form-signin">
+        <h2 class="form-heading">Log in</h2>
+        <c:url var="loginUrl" value="/login"/>
+        <div class="form-group">
+            <form action="${loginUrl}" method="post">
+                <c:if test="${param.error != null}">
+                    <div class="alert alert-danger">
+                        <p>Invalid username and password.</p>
                     </div>
-                    <div class="input-group input-sm">
-                        <label class="input-group-addon" for="password"><i class="fa fa-lock"></i></label>
-                        <input type="password" class="form-control" id="password" name="password"
-                               placeholder="Enter Password" required>
+                </c:if>
+                <c:if test="${param.logout != null}">
+                    <div class="alert alert-success">
+                        <p>You have been logged out successfully.</p>
                     </div>
-                    <div class="input-group input-sm">
-                        <div class="checkbox">
-                            <label><input type="checkbox" id="rememberme" name="remember-me"> Remember Me</label>
-                        </div>
-                    </div>
-                    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                </c:if>
+                <input type="text" class="form-control fa-user" id="username" name="ssoId" placeholder="Username"
+                       required>
+                <input type="password" class="form-control fa-lock" id="password" name="password"
+                       placeholder="Password" required>
 
-                    <div class="form-actions">
-                        <input type="submit"
-                               class="btn btn-block btn-primary btn-default" value="Log in">
-                    </div>
-                </form>
-            </div>
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Log In</button>
+                <h4 class="text-center"><a href="${contextPath}/registration">Create an account</a></h4>
+            </form>
         </div>
     </div>
 </div>
+<!-- /container -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 
 </body>
 </html>
