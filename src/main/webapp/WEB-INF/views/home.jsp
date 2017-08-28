@@ -12,11 +12,13 @@
     <title>Spittr</title>
     <link rel="stylesheet"
           type="text/css"
-          href="<c:url value="/static/css/bootstrap.css" />" >
+          href="<c:url value="/static/css/bootstrap.css" />">
 </head>
 <body>
 <h1>Welcome to Spittr</h1>
-<a href="<c:url value="/" />">Spittles</a> |
-<a href="<c:url value="/registration" />">Register</a>
+<a href="<c:url value="/login" />">Sing in</a> |
+<a href="<c:url value="/registration" />">Sing up</a>
+<a href="<c:url value="/spittles" />">Spittles</a> |
+<a href="<c:url value="/spitter/register" />">Register</a>
 </body>
 </html>
